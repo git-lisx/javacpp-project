@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.bytedeco</groupId>
+        <artifactId>javacpp-presets</artifactId>
+        <version>1.5.12</version>
+    </parent>
+
+    <groupId>cn.xian</groupId>
+    <!--artifactId不能有-，因为配置文件的包名规则为：org.bytedeco.${artifactId}.presets-->
+    <artifactId>javacppsdk</artifactId>
+    <version>${revision}</version>
+    <name>JavaCPP Presets for helloworld</name>
+
+    <properties>
+        <revision>2.0-${project.parent.version}</revision>
+        <!--是否跳过执行cppbuild.sh脚本，默认false-->
+<!--        <javacpp.cppbuild.skip>true</javacpp.cppbuild.skip>-->
+        <javacpp.cppbuild.skip>false</javacpp.cppbuild.skip>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.bytedeco</groupId>
+            <artifactId>javacpp</artifactId>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.bytedeco</groupId>
+                <artifactId>javacpp</artifactId>
+                <executions>
+                    <!-- 禁用clean阶段的cppbuild.sh执行 -->
+                    <execution>
+                        <id>javacpp-cppbuild-clean</id>
+                        <phase>none</phase>
+                    </execution>
+                </executions>
+
+                <configuration>
+                    <!--设置头文件目录-->
+<!--                    <includePaths>-->
+<!--                        <includePath>${basedir}/../cpp/include</includePath>-->
+<!--                    </includePaths>-->
+                    <!--设置库文件目录，比如.so文件所在文件夹-->
+<!--                    <linkPaths>-->
+<!--                        <linkPath>${basedir}/../cppbuild/${javacpp.platform}/lib</linkPath>-->
+<!--                    </linkPaths>-->
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-jar-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.moditect</groupId>
+                <artifactId>moditect-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-dependency-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-source-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-javadoc-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>mingw</id>
+            <activation>
+                <os>
+                    <family>windows</family>
+                </os>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.bytedeco</groupId>
+                        <artifactId>javacpp</artifactId>
+                        <configuration>
+                            <properties>${javacpp.platform}-mingw</properties>
+                            <compilerOptions>
+                                <compilerOption>-static-libgcc</compilerOption>
+                                <compilerOption>-static-libstdc++</compilerOption>
+                                <compilerOption>-Wl,-Bstatic</compilerOption>
+                                <compilerOption>-lstdc++</compilerOption>
+                                <compilerOption>-lgcc</compilerOption>
+                                <compilerOption>-lgcc_eh</compilerOption>
+                                <compilerOption>-lpthread</compilerOption>
+                                <compilerOption>-Wl,-Bdynamic</compilerOption>
+                            </compilerOptions>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>
