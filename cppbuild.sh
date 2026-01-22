@@ -33,7 +33,9 @@ if [[ $1 == "install" ]]; then
     # 创建目标目录
     mkdir -p "$DST_PREFIX/include"
     mkdir -p "$DST_PREFIX/lib"
-    
+    echo "创建目标目录：mkdir -p $DST_PREFIX/include"
+    echo "创建目标目录：$DST_PREFIX/lib"
+
     # 复制头文件
     cp -r "$PWD/cpp/include"/* "$DST_PREFIX/include/"
     echo "已复制头文件命令：cp -r $PWD/cpp/include/* $DST_PREFIX/include/"
