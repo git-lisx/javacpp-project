@@ -1,13 +1,13 @@
 /**
- * @file multiply_demo.h
+ * @file add_demo.h
  * @brief 包含加法函数声明的头文件
  *
  * 该头文件定义了一个简单的加法函数，用于演示多文件编译。
  * 对应的源文件应包含函数的具体实现。
  */
 
-#ifndef MULTIPLY_DEMO_H
-#define MULTIPLY_DEMO_H
+#ifndef ADD_DEMO_H
+#define ADD_DEMO_H
 
 /**
  * @brief 计算两个整数的和
@@ -24,4 +24,4 @@
  */
 int add(int a, int b);
 
-#endif // MULTIPLY_DEMO_H
+#endif // ADD_DEMO_H

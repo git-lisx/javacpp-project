@@ -6,13 +6,7 @@ import org.bytedeco.javacpp.tools.InfoMap;
 import org.bytedeco.javacpp.tools.InfoMapper;
 
 @Properties(
-//    target = "cn.xian",
-//    global = "cn.xian.global.AddDemo3",
-
-
-//        target = "org.bytedeco.ucc",
-//        global = "org.bytedeco.ucc.global.AddDemo3",
-
+        // 包名规则为：org.bytedeco.${artifactId}，强制要求
         target = "org.bytedeco.javacppsdk",
         global = "org.bytedeco.javacppsdk.global.AddDemo3",
 
@@ -25,7 +19,10 @@ import org.bytedeco.javacpp.tools.InfoMapper;
                 "windows-x86",
                 "windows-x86_64"
             },
-            include = "add_demo.h",
+            include = {
+                    "add_demo.h",
+                    "Point.h"
+            },
             link = "add_demo"
 //                ,
 //            preload = "libhelloworld-0"

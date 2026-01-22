@@ -11,6 +11,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 # 添加库
 add_library(add_demo SHARED
         src/add_demo.cpp
+        src/Point.cpp
 )
 
 # 添加 native library 库
