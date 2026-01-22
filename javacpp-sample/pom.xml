@@ -30,6 +30,13 @@
             <classifier>linux-x86_64</classifier>
         </dependency>
 
+        <dependency>
+            <groupId>cn.xian</groupId>
+            <artifactId>javacppsdk</artifactId>
+            <version>2.0-1.5.12</version>
+            <classifier>windows-x86_64</classifier>
+        </dependency>
+
 
 
     </dependencies>

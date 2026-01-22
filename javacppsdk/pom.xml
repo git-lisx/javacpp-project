@@ -18,8 +18,8 @@
     <properties>
         <revision>2.0-${project.parent.version}</revision>
         <!--是否跳过执行cppbuild.sh脚本，默认false-->
-<!--        <javacpp.cppbuild.skip>true</javacpp.cppbuild.skip>-->
-        <javacpp.cppbuild.skip>false</javacpp.cppbuild.skip>
+        <javacpp.cppbuild.skip>true</javacpp.cppbuild.skip>
+<!--        <javacpp.cppbuild.skip>false</javacpp.cppbuild.skip>-->
     </properties>
 
     <dependencies>

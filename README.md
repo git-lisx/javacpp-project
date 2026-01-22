@@ -59,7 +59,7 @@ mvn clean install
 
 ```bash
 cd javacpp-sample
-mvn exec:java -Dexec.mainClass="AddDemoTest"
+mvn exec:java "-Dexec.mainClass=AddDemoTest"
 ```
 
 或者使用IDEA打开javacpp-sample项目，运行AddDemoTest类
