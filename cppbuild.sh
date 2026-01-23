@@ -26,22 +26,20 @@ if [[ $1 == "install" ]]; then
 
     cd ..
     echo "当前路径2: $PWD"
-    DST_PREFIX="$PWD/javacppsdk/cppbuild/$PLATFORM"
-    echo "安装路径: $DST_PREFIX" # /home/dataexa/lisx/javacpp-project/javacppsdk/cppbuild/linux-x86_64
+    DST_INCLUDE_PREFIX="$PWD/javacppsdk/cppbuild/include/"
+    DST_LIB_PREFIX="$PWD/javacppsdk/cppbuild/$PLATFORM/lib/"
 
     echo "开始复制头文件和库文件"
     # 创建目标目录
-    mkdir -p "$DST_PREFIX/include"
-    mkdir -p "$DST_PREFIX/lib"
-    echo "创建目标目录：mkdir -p $DST_PREFIX/include"
-    echo "创建目标目录：$DST_PREFIX/lib"
+    mkdir -p "$DST_INCLUDE_PREFIX"
+    mkdir -p "$DST_LIB_PREFIX"
 
     # 复制头文件
-    cp -r "$PWD/cpp/include"/* "$DST_PREFIX/include/"
-    echo "已复制头文件命令：cp -r $PWD/cpp/include/* $DST_PREFIX/include/"
+    cp -r "$PWD/cpp/include"/* "$DST_INCLUDE_PREFIX"
+    echo "已复制头文件命令：cp -r $PWD/cpp/include/* $DST_INCLUDE_PREFIX"
     
     # 复制库文件
-    cp -r "$PWD/cpp/build/lib"/* "$DST_PREFIX/lib/"
-    echo "已复制库文件命令：cp -r $PWD/cpp/build/lib/* $DST_PREFIX/lib/"
+    cp -r "$PWD/cpp/build/lib"/* "$DST_LIB_PREFIX"
+    echo "已复制库文件命令：cp -r $PWD/cpp/build/lib/* $DST_LIB_PREFIX"
 
 fi

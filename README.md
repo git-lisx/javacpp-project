@@ -19,6 +19,8 @@
 │   ├── src/gen/java/       # JavaCPP生成的Java文件
 │   ├── target/             # 构建输出
 │   └── pom.xml             # Maven配置
+├── javacppsdk-platform/    # JavaCPP platform相关，暂未使用
+│   └── pom.xml             # Maven配置
 └── cppbuild.sh             # 顶层C++构建脚本
 ```
 
@@ -64,7 +66,7 @@ mvn exec:java "-Dexec.mainClass=AddDemoTest"
 
 或者使用IDEA打开javacpp-sample项目，运行AddDemoTest类
 
-注意：IDEA打开javacpp-project文件夹，运行javacpp-sample中AddDemoTest类会报错，原因未知
+注意：IDEA打开javacpp-project文件夹，运行javacpp-sample中AddDemoTest类会报错，原因待进一步研究
 
 ## 依赖项
 
@@ -76,3 +78,5 @@ mvn exec:java "-Dexec.mainClass=AddDemoTest"
 ## 关于JavaCPP
 
 JavaCPP提供了高效的方式来连接Java和本地C++代码，允许直接在Java中调用C++函数，而无需编写JNI代码。这个项目展示了如何设置和使用JavaCPP进行Java与C++的互操作。
+
+参考链接：https://github.com/bytedeco/javacpp-presets/tree/helloworld/helloworld

@@ -18,8 +18,8 @@
     <properties>
         <revision>2.0-${project.parent.version}</revision>
         <!--是否跳过执行cppbuild.sh脚本，默认false-->
-        <javacpp.cppbuild.skip>true</javacpp.cppbuild.skip>
-<!--        <javacpp.cppbuild.skip>false</javacpp.cppbuild.skip>-->
+<!--        <javacpp.cppbuild.skip>true</javacpp.cppbuild.skip>-->
+        <javacpp.cppbuild.skip>false</javacpp.cppbuild.skip>
     </properties>
 
     <dependencies>
@@ -55,9 +55,9 @@
 
                 <configuration>
                     <!--设置头文件目录-->
-<!--                    <includePaths>-->
-<!--                        <includePath>${basedir}/../cpp/include</includePath>-->
-<!--                    </includePaths>-->
+                    <includePaths>
+                        <includePath>${basedir}/cppbuild/include</includePath>
+                    </includePaths>
                     <!--设置库文件目录，比如.so文件所在文件夹-->
 <!--                    <linkPaths>-->
 <!--                        <linkPath>${basedir}/../cppbuild/${javacpp.platform}/lib</linkPath>-->
